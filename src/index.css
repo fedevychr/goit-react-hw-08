@@ -1,21 +1,16 @@
-@import "styles/variables.css";
-
-body {
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: var(--color-dark);
-  background-color: var(--color-white);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Reset styles */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+  padding: 20px;
+}
+
 h1,
 h2,
 h3,
@@ -26,28 +21,22 @@ p {
   margin: 0;
 }
 
-p:last-child {
-  margin-bottom: 0;
+button {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-ul {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-a {
-  color: currentColor;
-  text-decoration: none;
-  display: block;
-}
-
-button {
-  cursor: pointer;
-}
-
 img {
   display: block;
   max-width: 100%;
-  height: auto;
 }

@@ -1,77 +1,59 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useId } from "react";
 import { useDispatch } from "react-redux";
+// import { nanoid } from "nanoid";
 import * as Yup from "yup";
-import { addContact } from "../../redux/contactsOps";
-
+import { addContact } from "../../redux/contacts/operations";
 import css from "./AddContactForm.module.css";
 
-const ContactSchema = Yup.object().shape({
+const contactUserSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
+    .required("Name is required!")
+    .min(3, "Too short!")
+    .max(50, "Too long!"),
   number: Yup.string()
-    .matches(/^[0-9 -/+]+$/, "Invalid number. You can use '0-9', ' ', '-', '+'")
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
+    .required("Number is required!")
+    .min(3, "Too short!")
+    .max(50, "Too long!"),
 });
 
-const initialValue = { name: "", number: "" };
+const FORM_INITIAL_VALUES = {
+  name: "",
+  number: "",
+};
 
 const AddContactForm = () => {
   const dispatch = useDispatch();
-  const nameFieldId = useId();
-  const numberFieldId = useId();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(addContact({ ...values }));
+  //Функція для збору інформації з форми
+  const handeSubmit = (value, actions) => {
+    dispatch(addContact(value));
     actions.resetForm();
   };
 
   return (
     <Formik
-      initialValues={initialValue}
-      onSubmit={handleSubmit}
-      validationSchema={ContactSchema}
+      onSubmit={handeSubmit}
+      initialValues={FORM_INITIAL_VALUES}
+      validationSchema={contactUserSchema}
     >
-      <Form className={css.form}>
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor={nameFieldId}>
-            Name
-          </label>
+      <Form className={css.container}>
+        <label>
+          <span>Name</span>
+          <br />
+          <Field type="text" name="name" placeholder="Enter contact's name" />
+          <ErrorMessage component="p" name="name" className={css.error} />
+        </label>
+        <label>
+          <span>Number</span>
+          <br />
           <Field
-            className={css.textInput}
-            type="text"
-            name="name"
-            id={nameFieldId}
-          />
-          <ErrorMessage
-            className={css.errorNotification}
-            name="name"
-            component="span"
-          />
-        </div>
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor={numberFieldId}>
-            Number
-          </label>
-          <Field
-            className={css.textInput}
             type="text"
             name="number"
-            id={numberFieldId}
+            placeholder="Enter contact's number"
           />
-          <ErrorMessage
-            className={css.errorNotification}
-            name="number"
-            component="span"
-          />
-        </div>
-        <button className={css.button} type="submit">
-          Add Contact
-        </button>
+          <ErrorMessage component="p" name="number" className={css.error} />
+        </label>
+        <button type="submit">Add contact</button>
       </Form>
     </Formik>
   );

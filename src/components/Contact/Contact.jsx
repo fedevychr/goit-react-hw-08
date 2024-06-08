@@ -1,28 +1,34 @@
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaUser } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsOps";
-
 import css from "./Contact.module.css";
+import { FaUser } from "react-icons/fa";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contacts/operations";
 
-const Contact = ({ id, name, number }) => {
+const Contact = ({ contact }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(id));
+  //Функція видалення контактів
+  const onDeleteContact = (contactId) => {
+    dispatch(deleteContact(contactId));
+  };
 
   return (
-    <li className={css.card}>
-      <div className={css.wrapper}>
-        <div className={css.info}>
-          <FaUser />
-          <p>{name}</p>
-        </div>
-        <div className={css.info}>
-          <FaPhoneAlt />
-          <p>{number}</p>
-        </div>
+    <li className={css.itemContact}>
+      <div>
+        <p>
+          <span>
+            <FaUser className={css.icon} />
+          </span>
+          <span>{contact.name}</span>
+        </p>
+        <p>
+          <span>
+            <BsFillTelephoneFill className={css.icon} />
+          </span>
+          <span>{contact.number}</span>
+        </p>
       </div>
-      <button className={css.button} onClick={handleDelete}>
-        delete
+      <button type="button" onClick={() => onDeleteContact(contact.id)}>
+        Delete
       </button>
     </li>
   );

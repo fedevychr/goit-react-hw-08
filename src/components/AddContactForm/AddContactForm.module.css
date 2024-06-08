@@ -1,51 +1,36 @@
-.form {
-  margin-top: 10px;
-  max-width: 375px;
-  padding: 20px;
-  border: 1px solid var(--color-dark);
+.container {
+  width: 350px;
+  border: 1px solid black;
+  padding: 10px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.inputWrapper {
-  position: relative;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-}
-.inputWrapper:nth-child(2) {
-  margin-bottom: 30px;
-}
-.label {
-  cursor: pointer;
-}
-.textInput {
-  background-color: transparent;
-  padding: 5px 10px;
-  border-radius: 3px;
-  border: 1px solid var(--color-dark);
-  color: var(--color-dark);
-}
-.errorNotification {
-  color: var(--color-red);
-  font-size: 10px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transform: translateY(100%);
-}
-.button {
-  align-self: center;
-  padding: 0 10px;
-  height: 30px;
-  background-color: transparent;
-  color: var(--color-dark);
-  border: 1px solid var(--color-dark);
-  border-radius: 3px;
-  transition: background-color 0.3s ease;
+.container label {
+  margin-bottom: 10px;
 }
 
-.button:hover {
-  background-color: var(--color-light);
+.container button {
+  padding: 5px;
+  background-color: rgb(244, 244, 244);
+  border: 1px solid gray;
+  /* height: 40px; */
+  border-radius: 5px;
+}
+.container label input {
+  width: 300px;
+  border: 1px solid;
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+}
+
+.container label input:focus {
+  border: 1px solid blue;
+  outline: 1px solid blue;
+}
+
+.error {
+  color: red;
 }
