@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { addContact } from "../../redux/contactsOps";
 
-import css from "./ContactForm.module.css";
+import css from "./AddContactForm.module.css";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -20,7 +20,7 @@ const ContactSchema = Yup.object().shape({
 
 const initialValue = { name: "", number: "" };
 
-const ContactForm = () => {
+const AddContactForm = () => {
   const dispatch = useDispatch();
   const nameFieldId = useId();
   const numberFieldId = useId();
@@ -77,4 +77,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default AddContactForm;
