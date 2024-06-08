@@ -3,7 +3,7 @@ import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Loader from "./Loader/Loader";
-// import { refreshUser } from "./redux/auth/operations";
+import { refreshUser } from "../redux/auth/operations";
 import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(refreshUser());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (
