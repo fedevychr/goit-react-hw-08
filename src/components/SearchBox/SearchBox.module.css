@@ -1,15 +1,16 @@
-.label {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  max-width: 375px;
-  gap: 5px;
-  cursor: pointer;
+.searchContainer {
+  margin-top: 25px;
+  width: 350px;
 }
-.input {
-  background-color: transparent;
-  padding: 5px 10px;
-  border-radius: 3px;
-  border: 1px solid var(--color-dark);
-  color: var(--color-dark);
+
+.searchContainer input {
+  width: inherit;
+  border: 1px solid;
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+}
+
+.searchContainer > input:focus {
+  border: 1px solid blue;
+  outline: 1px solid blue;
 }
