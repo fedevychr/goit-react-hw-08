@@ -1,0 +1,51 @@
+.form {
+  margin-top: 10px;
+  max-width: 375px;
+  padding: 20px;
+  border: 1px solid var(--color-dark);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.inputWrapper:nth-child(2) {
+  margin-bottom: 30px;
+}
+.label {
+  cursor: pointer;
+}
+.textInput {
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+}
+.errorNotification {
+  color: var(--color-red);
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+}
+.button {
+  align-self: center;
+  padding: 0 10px;
+  height: 30px;
+  background-color: transparent;
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-light);
+}
